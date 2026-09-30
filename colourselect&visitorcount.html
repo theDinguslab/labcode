@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head></head>
+<script>
+  const colorSelect = document.getElementById("bg-color-select");
+
+  function applyBgColor(color) {
+    document.body.style.background = color;
+    localStorage.setItem("siteBgColor", color);
+  }
+
+  colorSelect.addEventListener("change", (event) => {
+    applyBgColor(event.target.value);
+  });
+
+  const savedColor = localStorage.getItem("siteBgColor");
+  if (savedColor) {
+    colorSelect.value = savedColor;
+    applyBgColor(savedColor);
+  }
+</script>
+<script>
+(function () {
+  var COUNTER_KEY = "dinguslab-inc-sitewide"; // must be identical on every page
+  var STORAGE_KEY = "dl_last_counted_visit";
+  var WEEK_MS = 7 * 24 * 60 * 60 * 1000;
+  var el = document.getElementById("visit-count");
+
+  var hitUrl = "https://countapi.mileshilliard.com/api/v1/hit/" + COUNTER_KEY;
+  var getUrl = "https://countapi.mileshilliard.com/api/v1/get/" + COUNTER_KEY;
+
+  var lastVisit = parseInt(localStorage.getItem(STORAGE_KEY), 10);
+  var now = Date.now();
+  var shouldCount = !lastVisit || (now - lastVisit) > WEEK_MS;
+
+  fetch(shouldCount ? hitUrl : getUrl)
+    .then(function (res) { return res.json(); })
+    .then(function (data) {
+      el.textContent = data.value;
+      if (shouldCount) {
+        localStorage.setItem(STORAGE_KEY, now.toString());
+      }
+    })
+    .catch(function () {
+      el.textContent = "N/A";
+    });
+})();
+</script>
+</body>
+</html>
