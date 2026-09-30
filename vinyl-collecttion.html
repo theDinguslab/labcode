@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>VINYL COLLECTION</title>
+  <link rel="icon" type="image/x-icon" href="(insert favicon link here)" />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #00ff00;
+      color: black;
+      font-family: "Comic Sans MS", "Courier New", monospace;
+      text-align: center;
+    }
+    .page {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    h1 {
+      font-size: 5rem;
+      text-shadow: 2px 2px 0 black;
+      margin: 0;
+    }
+    nav a {
+      display: inline-block;
+      margin: 8px 12px;
+      padding: 10px 16px;
+      background: black;
+      color: #00ff00;
+      text-decoration: none;
+      border: 3px solid #000;
+      font-weight: bold;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      margin-top: 20px;
+    }
+    .card {
+      border: 4px dotted black;
+      padding: 10px;
+      background: rgba(255,255,255,0.7);
+    }
+    .card img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      border: 3px solid black;
+    }
+    .card h2 {
+      margin: 12px 0 8px;
+      font-size: 1.2rem;
+    }
+    .editable {
+      border: 3px inset black;
+      background: rgba(255,255,255,0.85);
+      padding: 12px;
+      margin: 14px auto;
+      text-align: left;
+      max-width: 880px;
+    }
+    .color-switcher {
+  position: fixed;
+  top: 12px;
+  right: 12px;
+  background: rgba(0, 0, 0, 0.7);
+  color: #00ff00;
+  border: 2px solid black;
+  border-radius: 8px;
+  padding: 8px 10px;
+  font-family: "Courier New", monospace;
+  z-index: 999;
+  font-size: 0.9rem;
+}
+.color-switcher select {
+  margin-left: 6px;
+  background: black;
+  color: #00ff00;
+  border: 2px solid #00ff00;
+  padding: 2px 6px;
+}
+.visit-counter {
+  position: fixed;
+  bottom: 12px;
+  right: 12px;
+  background: rgba(0, 0, 0, 0.7);
+  color: #00ff00;
+  border: 2px solid black;
+  border-radius: 8px;
+  padding: 8px 10px;
+  font-family: "Courier New", monospace;
+  z-index: 999;
+  font-size: 0.9rem;
+}
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="color-switcher">
+  <label for="bg-color-select">BG:</label>
+  <select id="bg-color-select">
+    <option value="#00ff00">Neon Green</option>
+    <option value="#ff55ff">Hot Pink</option>
+    <option value="#00ffff">Electric Cyan</option>
+    <option value="#ffff00">Blazing Yellow</option>
+    <option value="#ff9900">Retro Orange</option>
+    <option value="#7f00ff">Ultra Purple</option>
+    <option value="#0099ff">Pixel Blue</option>
+    <option value="#ffffff">White</option>
+    <option value="#000000">Black</option>
+    <option value="#444444">Dark Grey</option>
+  </select>
+</div>
+<div class="visit-counter">
+  Visitors: <span id="visit-count">…</span>
+</div>
+    <h1>VINYL COLLECTION</h1>
+
+    <nav>
+      <a href="index.html">HOME</a>
+      <a href="lab-gallery.html">LAB GALLERY</a>
+      <a href="vinyl-collection.html">VINYL COLLECTION</a>
+      <a href="blog.html">BLOG</a>
+      <a href="contact.html">CONTACT</a>
+    </nav>
+
+    <div class="editable" contenteditable="true">
+      <p>(enter description here)</p>
+      <P>COLLECTION STATS:</P>
+        <ul>
+        <li>Total records: </li>
+        <li>Favorite pressing: </li>
+        <li>Most-played: </li>
+        <li>Currently hunting for:</li>
+        </ul>
+     <p>(<b>**</b> indicates an original release year pressing)</p>
+      </div>
+
+    <!--
+      HOW TO ADD A RECORD:
+      Copy one of the ".card" blocks below, paste it into the ".gallery" div,
+      then swap the image src, alt text, and the two <p> lines
+      (artist/album on the first line, notes on the second).
+
+      <div class="card">
+        <img src="IMAGE_URL_HERE" alt="short description" />
+        <p>Artist - Album Title</p>
+        <p>Year / notes / condition</p>
+      </div>
+    -->
+
+    <div class="gallery">
+       <div class="card">
+        <img src="IMAGE_URL_HERE" alt="short description" />
+        <p>Artist - Album Title</p>
+        <p>Year / notes / condition</p>
+      </div>
+      <div class="card">
+        <img src="IMAGE_URL_HERE" alt="short description" />
+        <p>Artist - Album Title</p>
+        <p>Year / notes / condition</p>
+      </div>
+      <div class="card">
+        <img src="IMAGE_URL_HERE" alt="short description" />
+        <p>Artist - Album Title</p>
+        <p>Year / notes / condition</p>
+      </div>
+    
+  <script>
